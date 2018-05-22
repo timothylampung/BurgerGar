@@ -1,0 +1,58 @@
+<!--
+  Generated template for the UserDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+  <ion-navbar>
+    <ion-buttons start>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>Product Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <img [src]="detail.image" />
+  </ion-item>
+
+  <ion-list no-lines>
+    <ion-list-header>
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Product Details</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Product Name</ion-label>
+      <ion-label>{{detail.name}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>RM</ion-label>
+      <ion-label>{{detail.price}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Product Left</ion-label>
+      <ion-label>{{detail.stock}} pkt</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <button item-right ion-button (click)="showAlert()">  <ion-icon name="cart"></ion-icon>ADD CART</button>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>
