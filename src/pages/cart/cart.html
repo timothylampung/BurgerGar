@@ -1,0 +1,32 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar [hideBackButton]="true">
+
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+
+    <ion-title>
+      Cart
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item *ngFor=" let item of carts$|async">
+      <h2>{{item.itemName}}</h2>
+      <p>RM {{item.itemPrice}}</p>
+      <p>RM {{item.itemFlavour}}</p>
+      <button (click)="openModal(item)" ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
