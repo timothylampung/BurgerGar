@@ -1,14 +1,10 @@
-import { Injectable, EventEmitter, Inject } from '@angular/core';
+import { Injectable, } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from "rxjs/Observable";
-import { Platform } from 'ionic-angular';
-import firebase, {User} from 'firebase';
-import {UserInterface} from "../../interface/user.interface";
 
 @Injectable()
 export class AuthProvider {
 
-  constructor(private af: AngularFireAuth, private platform: Platform) {
+  constructor(private af: AngularFireAuth) {
   } //Added injectors
 
 

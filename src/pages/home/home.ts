@@ -3,10 +3,12 @@ import {ModalController, NavController} from 'ionic-angular';
 import {MenuProvider} from "../../providers/firebase/menu.provider";
 import {Observable} from "rxjs/Observable";
 import {ItemMenuInterface} from "../../interface/menu-intem.interface";
-import {AngularFireList} from "angularfire2/database";
 import {MenuDetail} from "../menu-detail/menu-detail";
 import {AuthProvider} from "../../providers/firebase/auth.provider";
 import {LoginPage} from "../login/login";
+import {UserProvider} from "../../providers/firebase/user.provider";
+import {UserInterface} from "../../interface/user.interface";
+import {AdministratorPage} from "../administrator/administrator";
 
 @Component({
   selector: 'page-home',
@@ -18,8 +20,12 @@ export class HomePage {
 
   user : any;
 
+  user$ : Observable<UserInterface>;
+  USER : UserInterface;
+
   constructor(public navCtrl: NavController,
               private auth : AuthProvider,
+              private userProvider : UserProvider,
               public modalCtrl: ModalController,
               private menuProvider : MenuProvider) {
 
@@ -28,6 +34,17 @@ export class HomePage {
 
     if(this.user==undefined){
       this.navCtrl.setRoot(LoginPage);
+    } else {
+      this.user$ = this.userProvider.thisUser(this.user.uid);
+      this.user$.subscribe(x=>{
+        this.USER = x as UserInterface;
+      })
+
+      if (this.USER.accessLevel='admin'){
+        //kick to admin page
+
+        this.navCtrl.setRoot(AdministratorPage)
+      }
     }
   }
 

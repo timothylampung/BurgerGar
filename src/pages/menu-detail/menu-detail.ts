@@ -83,9 +83,7 @@ export class MenuDetail {
   }
 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserDetailPage');
-  }
+
 
 
   addToCart(flavor : string, quantity : number){

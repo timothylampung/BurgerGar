@@ -4,9 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import {LoginPage} from "../pages/login/login";
-import {AuthProvider} from "../providers/firebase/auth.provider";
 import {CartPage} from "../pages/cart/cart";
+import {MyOrderPage} from "../pages/my-order/my-order";
 
 
 @Component({
@@ -30,9 +29,13 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'My Cart', component: CartPage },
-      // { title: 'Calendar', component: CalendarPage },
-      // { title: 'Calendar2', component: Calendar2Page }
+       { title: 'My Orders', component: MyOrderPage }
+
+
     ];
+
+
+
   }
 
   initializeApp() {

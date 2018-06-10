@@ -24,9 +24,51 @@
     <ion-item *ngFor=" let item of carts$|async">
       <h2>{{item.itemName}}</h2>
       <p>RM {{item.itemPrice}}</p>
-      <p>RM {{item.itemFlavour}}</p>
+      <p>{{item.itemFlavour}}</p>
+      <p>{{item.quantity}}</p>
       <button (click)="openModal(item)" ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <ion-item>
+
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="DD/MMM/YYYY" pickerFormat="DD/MMM/YYYY" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+
+  <ion-item>
+    <ion-label>Time</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="time"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Delivery</ion-label>
+    <ion-toggle [(ngModel)]="show" [checked]="show"></ion-toggle>
+  </ion-item>
+
+  <ion-item *ngIf="show">
+    <ion-label fixed>Name</ion-label>
+    <ion-input [(ngModel)]="name" type="text" value=""></ion-input>
+  </ion-item>
+  <ion-item *ngIf="show">
+    <ion-label fixed>Contact No</ion-label>
+    <ion-input [(ngModel)]="contact" type="text" value=""></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="show">
+    <ion-label fixed>Address</ion-label>
+    <ion-input [(ngModel)]="address" type="text" value=""></ion-input>
+  </ion-item>
+
+
+
+  <div class="center">
+    <ion-buttons>
+      <button ion-button (click)="proceed()">Proceed </button>
+    </ion-buttons>
+  </div>
+
+</ion-footer>

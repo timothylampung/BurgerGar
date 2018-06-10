@@ -17,6 +17,9 @@ import {UserProvider} from "../providers/firebase/user.provider";
 import {AuthProvider} from "../providers/firebase/auth.provider";
 import {CartProvider} from "../providers/firebase/cart.provider";
 import {CartPage} from "../pages/cart/cart";
+import {MyOrderPage} from "../pages/my-order/my-order";
+import {OrderProvider} from "../providers/firebase/order.provider";
+import {AdministratorPage} from "../pages/administrator/administrator";
 
 
 export const firebaseConfig={
@@ -34,7 +37,9 @@ export const firebaseConfig={
     HomePage,
     MenuDetail,
     LoginPage,
-    CartPage
+    CartPage,
+    MyOrderPage,
+    AdministratorPage
   ],
   imports: [
     HttpClientModule,
@@ -50,13 +55,15 @@ export const firebaseConfig={
     HomePage,
     MenuDetail,
     LoginPage,
-    CartPage
+    CartPage,
+    MyOrderPage,
+    AdministratorPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MenuProvider, UserProvider,AuthProvider,CartProvider
+    MenuProvider, UserProvider,AuthProvider,CartProvider, OrderProvider
   ]
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
+import {LoadingController, NavController, NavParams} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {UserProvider} from "../../providers/firebase/user.provider";
 import {HomePage} from "../home/home";
@@ -22,8 +22,8 @@ export class  LoginPage {
   isLoad : boolean =false;
   authState: any = null;
 
-  email :string='';
-  password:string='';
+  email :string='ru@gmail.com';
+  password:string='123123';
 
 
   constructor(private afAuth: AngularFireAuth,
@@ -33,9 +33,6 @@ export class  LoginPage {
               public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
 
   presentLoading() {
     let loader = this.loadingCtrl.create({
