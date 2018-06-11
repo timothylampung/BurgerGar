@@ -34,17 +34,6 @@ export class HomePage {
 
     if(this.user==undefined){
       this.navCtrl.setRoot(LoginPage);
-    } else {
-      this.user$ = this.userProvider.thisUser(this.user.uid);
-      this.user$.subscribe(x=>{
-        this.USER = x as UserInterface;
-      })
-
-      if (this.USER.accessLevel='admin'){
-        //kick to admin page
-
-        this.navCtrl.setRoot(AdministratorPage)
-      }
     }
   }
 

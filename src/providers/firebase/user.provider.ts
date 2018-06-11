@@ -50,10 +50,10 @@ export class UserProvider {
   // }
 
   // Return a single observable item
-  getItem(uid: string): FirebaseObjectObservable<UserInterface> {
-    this.user = this.af.object(this.userPath+'/'+uid)
-    return this.user
-  }
+  // getItem(uid: string): FirebaseObjectObservable<UserInterface> {
+  //   this.user = this.af.object(this.userPath+'/'+uid)
+  //   return this.user
+  // }
 
 
   //GET one MENU TODO RETURN MENU
